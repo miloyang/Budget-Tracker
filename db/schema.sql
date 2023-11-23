@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS diybuddy_db;
+CREATE DATABASE diybuddy_db;
