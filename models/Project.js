@@ -16,17 +16,15 @@ Project.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
-    // date_created: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: DataTypes.NOW,
-    // },
-    // budget_estimation: {
-    //   type: DataTypes.FLOAT,
-    //   allowNull: false,
-    // },
+    material_checklist: {
+      type: DataTypes.TEXT,
+    },
+    budget_estimation: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
