@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
     try {
         const newTask = await Tasks.create({
-            req.body,
+            ...req.body,
             user_id: req.session.user_id
         })
 
