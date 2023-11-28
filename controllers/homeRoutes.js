@@ -49,53 +49,6 @@ router.get('/projects/:id', async (req, res) => {
     }
 });
 
-// Create a get route to show all tasks
-router.get('/', async (req, res) => {
-    try {
-        // Get all tasks and JOIN with user data
-        const taskData = await Tasks.findAll({
-            include: [
-                {
-                    model: Project,
-                    attributes: ['name'],
-                },
-            ],
-        });
-
-        const tasks = taskData.map((task) => task.get({ plain: true }));
-
-        res.render('homepage', {
-            tasks,
-            logged_in: req.session.logged_in
-        });
-    } catch (error) {
-        res.status(500).json(error);
-    }
-});
-
-// Create a get route to show a task based on ID
-router.get('/tasks/:id', async (req, res) => {
-    try {
-        const taskData = await Tasks.findByPk(req.params.id, {
-            include: [
-                {
-                    model: Project,
-                    attributes: ['name'],
-                },
-            ],
-        });
-
-        const tasks = taskData.get({ plain: true });
-
-        res.render('tasks', {
-            tasks,
-            logged_in: req.session.logged_in
-        });
-    } catch (error) {
-        res.status(500).json(error);
-    }
-});
-
 // Create a get route to show user's profile
 router.get('/profile', withAuth, async (req, res) => {
     try {
