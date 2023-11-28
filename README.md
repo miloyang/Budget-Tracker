@@ -6,15 +6,17 @@
 
 - [Description](#description)
 - [Built With](#built-with)
-- [Installation Instructions](#installation-instructions)
+- [Getting Started](#getting-started)
 - [Usage Instructions](#usage-instructions)
 - [License Section](#license)
-
+- [Tests](#tests)
 - [Contact Us](#contact-us)
 
 ## Description
 
 A DIY Project Planner that allows you to login and plan your DIY projects, along with keeping track of your budget estimation and materials needs. 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
 
@@ -32,7 +34,9 @@ A DIY Project Planner that allows you to login and plan your DIY projects, along
 - Heroku (for deployment)
 - Multer (for photo uploading)
 
-## Installation Instructions
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Getting Started
 
 ### Node.js Installation
 
@@ -45,6 +49,8 @@ Once Node.js has been successfully installed, click on the green "<> Code" butto
 ### Express.js
 
 You must also install the Express.js npm package to run the server. Since Express.js is an npm package instead of being built directly into node.js, you must type `npm init` into the command line to allow npm packages to be installed. Next, go to the server.js file, and in the command line, type `npm install express` to install Express.js on your computer. For documentation on Express.js follow this link https://expressjs.com/en/4x/api.html.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage Instructions
 
@@ -62,10 +68,14 @@ To use the deployed site, please head over to:
 
 6. At any given time, you will be able to logout of your account, and log back in as you wish. 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## License
 
 Permission to use this application is granted under the MIT license.
 Click on the link for more information: [MIT License Information](https://opensource.org/licenses/MIT)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Tests
 
@@ -86,9 +96,11 @@ Insomnia was used to seed and test the routes for this app. There is no command 
 - POST: http://localhost:3001/api/users
 - DELETE: http://localhost:3001/api/users/1
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Contact Us
 
-https://github.com/Petarlo
-https://github.com/MuhammadKhabbaz
-https://github.com/Lankycodes1
+https://github.com/Petarlo <br>
+https://github.com/MuhammadKhabbaz <br>
+https://github.com/Lankycodes1 <br>
 https://github.com/miloyang
