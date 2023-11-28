@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Tasks } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Create a post route to create a task
 router.post('/', withAuth, async (req, res) => {
     try {
         const newTask = await Tasks.create({
@@ -15,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+// Create a post route to delete a task
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const taskData = await Tasks.destroy({
