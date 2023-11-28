@@ -1,14 +1,16 @@
 const router = require('express').Router();
-const { Project, User, Task } = require('../models');
+const { Project, User, Tasks } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Create a get route to show all projects
 router.get('/', async (req, res) => {
     try {
+        // Get all projects and JOIN with user data
         const projectData = await Project.findAll({
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ],
         });
@@ -24,7 +26,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/project/:id', async (req, res) => {
+// Create a get route to show a project based on ID
+router.get('/projects/:id', async (req, res) => {
     try {
         const projectData = await Project.findByPk(req.params.id, {
             include: [
@@ -46,6 +49,54 @@ router.get('/project/:id', async (req, res) => {
     }
 });
 
+// Create a get route to show all tasks
+router.get('/', async (req, res) => {
+    try {
+        // Get all tasks and JOIN with user data
+        const taskData = await Tasks.findAll({
+            include: [
+                {
+                    model: Project,
+                    attributes: ['name'],
+                },
+            ],
+        });
+
+        const tasks = taskData.map((task) => task.get({ plain: true }));
+
+        res.render('homepage', {
+            tasks,
+            logged_in: req.session.logged_in
+        });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+// Create a get route to show a task based on ID
+router.get('/tasks/:id', async (req, res) => {
+    try {
+        const taskData = await Tasks.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Project,
+                    attributes: ['name'],
+                },
+            ],
+        });
+
+        const tasks = taskData.get({ plain: true });
+
+        res.render('tasks', {
+            tasks,
+            logged_in: req.session.logged_in
+        });
+    } catch (error) {
+        res.status(500).json(error);
+    }
+});
+
+// Create a get route to show user's profile
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
