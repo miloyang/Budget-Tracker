@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, User, Tasks } = require('../models');
+const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Create a get route to show all projects
@@ -33,7 +33,7 @@ router.get('/projects/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ],
         });
@@ -64,7 +64,8 @@ router.get('/profile', withAuth, async (req, res) => {
             logged_in: true
         });
     } catch (error) {
-        res.redirect('/profile');
+        console.error(error);
+        res.status(500).redirect('/profile');
         return;
     }
 

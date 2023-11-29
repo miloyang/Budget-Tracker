@@ -10,9 +10,10 @@ router.post('/', withAuth, async (req, res) => {
             user_id: req.session.user_id,
         });
 
-        res.status(200).json(newProject);
+        res.status(201).json(newProject);
     } catch (error) {
-        res.status(400).json(error);
+        console.error(error);
+        res.status(400).json({ error: 'Failed to create a new project.' });
     }
 });
 
@@ -31,9 +32,10 @@ router.delete('/:id', withAuth, async (req, res) => {
             return;
         }
 
-        res.status(200).json(projectData);
+        res.status(200).json({ message: 'Project deleted successfully.' });
     } catch (error) {
-            res.status(500).json(error);
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error.' });
     }
 });
 
