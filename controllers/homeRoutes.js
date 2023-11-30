@@ -1,14 +1,16 @@
 const router = require('express').Router();
-const { Project, User, Task } = require('../models');
+const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Create a get route to show all projects
 router.get('/', async (req, res) => {
     try {
+        // Get all projects and JOIN with user data
         const projectData = await Project.findAll({
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ],
         });
@@ -24,13 +26,14 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/project/:id', async (req, res) => {
+// Create a get route to show a project based on ID
+router.get('/projects/:id', async (req, res) => {
     try {
         const projectData = await Project.findByPk(req.params.id, {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ],
         });
@@ -46,6 +49,7 @@ router.get('/project/:id', async (req, res) => {
     }
 });
 
+// Create a get route to show user's profile
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
@@ -60,7 +64,8 @@ router.get('/profile', withAuth, async (req, res) => {
             logged_in: true
         });
     } catch (error) {
-        res.redirect('/profile');
+        console.error(error);
+        res.status(500).redirect('/profile');
         return;
     }
 
