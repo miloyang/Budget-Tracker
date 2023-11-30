@@ -1,40 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - DIY BUDDY</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
 
-</head>
-<body class="bg-no-repeat bg-cover bg-gray-100" style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 100vh;">
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h2>Signup</h2>
 
-    <div class="w-full h-full flex justify-center items-center">
-         <!-- Logo in the top left -->
-    <div class="absolute top-0 left-0 p-4">
-        <img src="/images/nobackgroundf.png" alt="Logo" class="w-60 h-25">
-    </div>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">signup</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-        <div class="w-96 p-8 bg-white shadow-blue-lg rounded-md">
-            <h1 class="text-3xl font-semibold mb-6 text-center">Login</h1>
-            <form>
-                <div class="mb-4">
-                    <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
-                    <input type="text" id="username" name="username" placeholder="" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-                </div>
-                <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                    <input type="password" id="password" name="password" placeholder="•••••••••" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-                </div>
-                <button type="submit" class="bg-indigo-600 text-white p-2 w-full rounded-md hover:bg-indigo-700">Login</button>
-            </form>
-            <hr class="my-6">
-            <p class="text-sm text-gray-600">Don't have an account? <a href="signup.html" class="text-indigo-600 font-semibold">Sign Up</a></p>
-        </div>
-    </div>
-    <script src="./app.js"></script>
-
-</body>
-</html>
+<script src="../public/js/login.js"></script>

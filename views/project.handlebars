@@ -1,13 +1,16 @@
 <div class="text-center">
   <h2>{{name}}</h2>
+  <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
-  <p>Created on {{format_date date_created}}</p>
+  <p>{{difficulty}}</p>
+  <p>{{materials}}</p>
+  <p>{{description}}</p>
   <p>
-    <span for="img" aria-label="budget">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    estimated.
+    <span for="img" aria-label="money">Budget:💲</span>
+    <span class="dollar-amount">{{format_amount budget}}</span>
   </p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
-    {{material_checklist}}
+    <button class="btn btn-primary">See Tasks</button>
   </p>
 </div>
