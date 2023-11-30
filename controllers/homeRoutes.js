@@ -66,10 +66,9 @@ router.get('/profile', withAuth, async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).redirect('/profile');
-        return;
+        // return;
     }
-
-    res.render('login');
+    // res.render('login');
 });
 
 module.exports = router;

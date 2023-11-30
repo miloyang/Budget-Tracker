@@ -11,68 +11,63 @@
 
 <body class="bg-no-repeat bg-cover bg-gray-100" style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 100vh;">
 
-    {{!-- <header class="text-blue-100 font-bold relative">
-    <nav class="absolute top-10 right-10 p-10"> --}}
-      <!-- Conditionally render login or logout links -->
-      {{!-- {{#if logged_in}}
-      <a href="/project">Projects</a> |
-      <button class="no-button" id="logout">Logout</button>
-      {{else}}
-      <a href="/login">Login</a>
-      <a href="/signup">Sign Up</a>
-      {{/if}}
-    </nav> --}}
-    <section class="absolute top-0 left-10 p-0">
-      <img src="C:\Users\peta_\bootcamp\DIY-Buddy\public\images\nobackgroundf.png" alt="DIY Buddy logo" width="500" height="400">
-    </section>
-  </header>
+    <header class="text-blue-100 font-bold relative">
+        <section class="absolute top-0 left-10 p-0">
+            <img src="/public/images/Logo.png" alt="DIY-Buddy-logo" width="100" height="100">
+        </section>
+    </header>
 
-  <main class="flex justify-center items-center h-full space-x-20" >
-    <!--Login box-->
-    <div class="w-96 p-8 bg-white shadow-blue-lg rounded-md">
-      <h1 class="text-3xl font-semibold mb-6 text-center">Login</h1>
-      <form>
-          <div class="mb-4">
-              <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-              <input type="text" id="email-login" name="email" placeholder="email" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-          </div>
-          <div class="mb-4">
-              <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-              <input type="password" id="password-login" name="password" placeholder="•••••••••" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-          </div>
-          <button type="submit" class="bg-indigo-600 text-white p-2 w-full rounded-md hover:bg-indigo-700">Login</button>
-      </form>
-  </div>
-</div>
+    <main class="flex justify-center items-center h-full space-x-20" >
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/public/js/login.js">login</a>
+        {{/if}}
+        <!-- Login box -->
+        <div class="w-96 p-8 bg-white shadow-blue-lg rounded-md">
+            <h1 class="text-3xl font-semibold mb-6 text-center">Login</h1>
+            <form class="login-form">
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+                    <input type="text" id="email-login" name="email" placeholder="Email" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                    <input type="password" id="password-login" name="password" placeholder="•••••••••" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <button type="submit" class="bg-indigo-600 text-white p-2 w-full rounded-md hover:bg-indigo-700">Login</button>
+            </form>
+        </div>
 
-<!--Sign up box-->
-<div class="w-96 p-8 bg-white shadow-lg rounded-md">
-  <h1 class="text-3xl font-semibold mb-6 text-center">Sign Up</h1>
-  <form>
-      <div class="mb-4">
-          <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
-          <input type="text" id="username" name="username" placeholder="Username" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-      </div>
-      <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-          <input type="email" id="email" name="email" placeholder="Type your Email" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-      </div>
-      <div class="mb-4">
-          <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-          <input type="password" id="password" name="password" placeholder="•••••••••" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-      </div>
-      <div class="mb-4">
-          <label for="confirmPassword" class="block text-sm font-medium text-gray-600">Confirm Password</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="•••••••••" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
-      </div>
-      <button type="submit" class="bg-indigo-600 text-white p-2 w-full rounded-md hover:bg-indigo-700">Sign Up</button>
-  </form>
-</div>
-</div>
-<script src="../../public/js/login.js"></script>
-      <!-- Render the sub layout -->
-      {{{ body }}}
-</main>
+        <!-- Sign up box -->
+        <div class="w-96 p-8 bg-white shadow-lg rounded-md">
+            <h1 class="text-3xl font-semibold mb-6 text-center">Sign Up</h1>
+            <form class="signup-form">
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+                    <input type="text" id="username-signup" name="username" placeholder="Username" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
+                    <input type="email" id="email-signup" name="email" placeholder="Type your Email" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+                    <input type="password" id="password-signup" name="password" placeholder="•••••••••" class="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </div>
+                <button type="submit" class="bg-indigo-600 text-white p-2 w-full rounded-md hover:bg-indigo-700">Sign Up</button>
+            </form>
+        </div>
 
+        <script src="../../public/js/login.js"></script>
+        <!-- Render the sub layout -->
+        {{{ body }}}
+    </main>
+
+  {{#if logged_in}}
+  <script src="/public/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>
