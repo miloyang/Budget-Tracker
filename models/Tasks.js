@@ -22,7 +22,7 @@ Task.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'task',
-}
+  }
 );
 
 module.exports = Task;
