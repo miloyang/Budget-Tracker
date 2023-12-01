@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
         res.status(200).json(userData);
        });
     } catch (error) {
-        console.log(error);
+        console.log('userRoutes post error');
         res.status(500).json(error);
     }
 });
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
             .json({ user: userData, message: 'You are now logged in!'});
         })
     } catch (error) {
-        console.error(error);
+        console.error(' userRoutes post login error');
         res.status(500).json(error);
     }
 });

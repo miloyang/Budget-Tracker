@@ -7,7 +7,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newTask = await Task.create({
             ...req.body,
-            project_id: req.session.project_id
+            user_id: req.session.user_id
         })
 
         res.status(201).json(newTask);
@@ -62,7 +62,7 @@ router.get('/:id', async (req, res) => {
 
         const task = taskData.get({ plain: true });
 
-        res.render('tasks', {
+        res.render('task', {
             task,
             logged_in: req.session.logged_in
         });
