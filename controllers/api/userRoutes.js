@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Create a post route to create a user
+// Create a post route to create a new user
 router.post('/', async (req, res) => {
     try {
        const userData = await User.create(req.body);
@@ -34,6 +34,8 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        const validPassword = userData.checkPassword(req.body.password);
+        
         if (!validPassword) {
             res
             .status(400)

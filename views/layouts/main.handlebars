@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIY BUDDY</title>
-    <link rel="stylesheet" href="/public/css/jass.css">
+    <link rel="stylesheet" href="/css/jass.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -18,9 +18,9 @@
         <header class="display-flex justify-space-between align-center p-2">
             <h1>
                 <span role="img" aria-label="hammer">🛠</span>
-                <a href="/">DIY BUDDY</a>
+                DIY BUDDY
             </h1>
-            <nav>
+            {{!-- <nav>
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
                 <a href="/public/js/profile.js"> {{User.username}} </a> |
@@ -28,7 +28,7 @@
                 {{else}}
                 <a href="/public/js/login.js">login</a>
                 {{/if}}
-            </nav>
+            </nav> --}}
         </header>
         <main class="container container-fluid mt-5">
             <!-- Render the sub layout -->
@@ -39,10 +39,10 @@
         </footer>
     </div>
 
-    <!-- Render script for logged in users only -->
+    {{!-- <!-- Render script for logged in users only -->
     {{#if logged_in}}
     <script src="/public/js/logout.js"></script>
-    {{/if}}
+    {{/if}} --}}
 </body>
 
 </html>
