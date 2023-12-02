@@ -1,12 +1,16 @@
 [
   {
-    "project_name": "DIY wooden stool",
+    "project-name": "DIY wooden stool",
     "description": "A mini wooden square stool to sit on",
-    "materials": "wood glue, wood screws, protective furniture feet"
+    "difficulty": "Easy",
+    "materials": "wood glue, wood screws, protective furniture feet",
+    "budget": "200"
   },
   {
     "name": "4 seater Dinning Table",
     "description": "A quick and easy diy dinning table for 4 people",
-    "materials": "wood panals, nail, screwdriver"
+    "difficulty": "Medium",
+    "materials": "wood panals, nail, screwdriver",
+    "budget": "500"
   }
 ]
