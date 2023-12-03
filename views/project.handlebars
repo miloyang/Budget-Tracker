@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center text-blue-100 font-bold relative">
   <h2>{{project.name}}</h2>
   <p>{{{get_emoji}}}</p>
   <p>{{project.description}}</p>
@@ -6,7 +6,7 @@
   <p>{{project.material_checklist}}</p>
   <p>{{project.description}}</p>
   <p>
-    <span for="img" aria-label="money">Budget:💲</span>
+    <span for="img" aria-label="money">Budget:💰</span>
     <span class="dollar-amount">{{format_amount project.budget_estimation}}</span>
   </p>
   <p>Created by {{user.username}} on {{format_date project.date_created}}</p>

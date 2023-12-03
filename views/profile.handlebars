@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row text-blue-100 font-bold relative">
   <div class="col-auto">
     <h2>Welcome, {{user.username}}!</h2>
   </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mt-4 text-blue-100 font-bold relative">
   <div class="col-md-6">
     <h3>Create a New Project:</h3>
 
@@ -18,7 +18,7 @@
         <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
       </div>
       <div class="form-group">
-        <label for="project-difficulty">Difficulty</label>
+        <label for="project-difficulty">Difficulty</label><br>
         <input type="radio" id="difficulty" name="diff" value="Easy">
         <label for="diff1">Easy</label><br>
         <input type="radio" id="difficulty" name="diff" value="Medium">
@@ -31,7 +31,7 @@
         <textarea class="form-input" id="materials" name="materials"></textarea>
       </div>
       <div class="form-group">
-        <label for="budget">Budget ($):</label>
+        <label for="budget">Budget💰:</label>
         <input class="form-input" type="number" id="budget" name="budget" />
       </div>
       <div class="form-group">
@@ -46,7 +46,7 @@
 
     {{#each user.projects as |project|}}
     <div class="row mb-2">
-      <div class="col-md-8">
+      <div class="col-md-8 text-yellow-100 font-bold">
         <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
       </div>
       <div class="col-md-4">
