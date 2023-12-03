@@ -2,15 +2,15 @@ header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
   }
 
-  h1 {
+  /* h1 {
     color: white;
   }
 
   nav {
     color: white;
-  }
+  } */
   
-  .no-button {
+  /* .no-button {
     background: none;
     border: none;
     padding: 0;
@@ -23,11 +23,11 @@ header, .project:not(:last-child) {
   .no-button:hover {
     color: #c8e6f3;
     text-decoration: underline;
-  }
+  } */
   
-  .dollar-amount {
+  /* .dollar-amount {
     color: #056605;
     font-weight: bold;
     margin-left: -5px;
   }
-  
+   */

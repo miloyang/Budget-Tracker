@@ -12,37 +12,33 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="bg-no-repeat bg-cover bg-gray-100" style="height: 100vh;">
+<body class="bg-no-repeat bg-cover bg-gray-100" style="background-image: url('https://images.unsplash.com/photo-1585314062604-1a357de8b000?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 100vh;">
 
-    <div class="flex-column justify-space-around">
-        <header class="display-flex justify-space-between align-center p-2">
-            <h1>
-                <span role="img" aria-label="hammer">🛠</span>
-                DIY BUDDY
-            </h1>
-            {{!-- <nav>
-                <!-- Conditionally render login or logout links -->
+    <div class="flex-column justify-around">
+        <header class="display-flex justify-space-between align-center p-2 text-blue-100 font-bold relative">
+            <div>
+                <img src="/images/nobackgroundf.png" alt="DIY Buddy Logo" width="400" height="200">
+            </div>
+            <nav class="p-5 space-x-5">
+                <!-- BUTTONS - conditionally render login or logout links -->
+                <a href="https://github.com/miloyang/DIY-Buddy">Github Repo</a>
                 {{#if logged_in}}
-                <a href="/public/js/profile.js"> {{User.username}} </a> |
-                <button class="no-button" id="logout">logout</button>
-                {{else}}
-                <a href="/public/js/login.js">login</a>
+                <a href="/profile">Profile</a>
+                <button class="no-button" id="logout">Logout</button>
                 {{/if}}
-            </nav> --}}
         </header>
         <main class="container container-fluid mt-5">
             <!-- Render the sub layout -->
             {{{ body }}}
         </main>
         <footer>
-
         </footer>
     </div>
 
-    {{!-- <!-- Render script for logged in users only -->
+    <!-- Render script for logged in users only -->
     {{#if logged_in}}
-    <script src="/public/js/logout.js"></script>
-    {{/if}} --}}
+    <script src="/js/logout.js"></script>
+    {{/if}} 
 </body>
 
 </html>
