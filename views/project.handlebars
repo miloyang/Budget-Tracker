@@ -1,90 +1,99 @@
 <div class="flex-grow flex">
-        <!-- Left Section -->
-        <div class="flex-grow">
-            <h1 class="text-3xl font-bold text-white mb-6">{{project.name}}</h1>
+  <!-- Left Section -->
+  <div class="flex-grow">
+    <h1 class="text-3xl font-bold text-white mb-6">{{project.name}}</h1>
 
-            <!-- Sections -->
-            <div class="space-y-6">
-                <!-- Project Description -->
-                <section>
-                    <div class="flex items-center mb-2">
-                        <h2 class="text-xl font-semibold text-white mr-2">{{project.description}}</h2>
-                        <button class="lockButton" data-section="projectDesc"><i class="fas fa-lock text-yellow-200"></i></button>
-                    </div>
-                    <p id="projectDesc" contenteditable="false" class="text-white">Project description text goes here...</p>
-                </section>
-                <!-- Project Difficulty -->
-                <section>
-                    <div class="flex items-center mb-2">
-                        <h2 class="text-xl font-semibold text-white mr-2">{{project.difficulty}}</h2>
-                        <button class="lockButton" data-section="projectDiff"><i class="fas fa-lock text-yellow-200"></i></button>
-                    </div>
-                    <select id="projectDiff" class="border p-2 rounded" disabled>
-                        <option value="Easy">Easy</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Hard">Hard</option>
-                        <option value="Expert">Expert</option>
-                    </select>
-                </section>
-
-                <!-- Budget Estimation -->
-                <section>
-                    <div class="flex items-center mb-2">
-                        <h2 class="text-xl font-semibold text-white mr-2">{{project.budget_estimation}}</h2>
-                        <button class="lockButton" data-section="budgetEst"><i class="fas fa-lock text-yellow-200"></i></button>
-                    </div>
-                    <div id="budgetEst">
-                        <input type="number" id="budgetLimit" value="1000" class="border p-2 rounded mb-2" disabled>
-                        <div class="bg-gray-200 w-full rounded-full h-2.5 dark:bg-gray-700 mb-2">
-                            <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
-                        </div>
-                        <div class="flex mb-2">
-                            <input type="number" id="spentAmount" placeholder="Amount Spent" class="border p-2 rounded mr-2" readonly>
-                            <button id="addExpense" class="bg-green-500 text-white py-2 px-4 rounded">+</button>
-                        </div>
-                        <ul id="expenseList" class="list-disc ml-5 text-white"></ul>
-                    </div>
-                </section>
-
-                <!-- Materials Checklist -->
-                <section>
-                    <div class="flex items-center mb-2">
-                        <h2 class="text-xl font-semibold text-white mr-2">{{project.material_checklist}}</h2>
-                        <button class="lockButton" data-section="materialsChecklist"><i class="fas fa-lock text-yellow-200"></i></button>
-                    </div>
-                    <div id="materialsChecklist" contenteditable="false">
-                        <div class="flex mb-2">
-                            <input type="text" id="materialItem" placeholder="Add item" class="border p-2 rounded mr-2" readonly>
-                            <button id="addMaterial" class="bg-green-500 text-white py-2 px-4 rounded">+</button>
-                        </div>
-                        <ul id="materialList" class="list-disc ml-5 text-white"></ul>
-                    </div>
-                </section>
-            </div>
+    <!-- Sections -->
+    <div class="space-y-6">
+      <!-- Project Description -->
+      <section>
+        <div class="flex items-center mb-2">
+          <h2 class="text-xl font-semibold text-white mr-2">{{project.description}}</h2>
+          <button class="lockButton" data-section="projectDesc"><i class="fas fa-lock text-yellow-200"></i></button>
         </div>
-
-        <!-- Right Section -->
-        <div class="ml-6">
-            <button id="tasksButton" name="tasks" class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Tasks</button>
-            
-            <!-- Img Upload Section -->
-            <div class="w-64 h-64 border border-dashed border-gray-400 flex flex-col justify-center items-center relative group hover:bg-gray-100" id="imageUploadContainer">
-                <span class="text-white">
-                    <img id="uploadedImage" src="placeholder.jpg" class="hidden" alt="Uploaded Image" />
-                </span>
-
-                <div id="uploadControls" class="text-yellow-200">
-                    Upload Image
-                    <button name="addImage" class="mt-2 hidden group-hover:flex items-center justify-center bg-gray-200 text-gray-700 py-1 px-3 rounded text-sm" id="imageBtn">
-                        <i class="fas fa-plus mr-1"></i> Add
-                    </button>
-                    <form id="imageUploadForm" class="hidden mt-4 p-4 bg-white shadow-lg rounded" method="POST" action="/api/upload" enctype="multipart/form-data">
-                        <input type="file" name="image" class="mb-2" id="imageFileInput">
-                        <input type="text" name="imgname" id="imgname" placeholder="Image Name" class="border p-2 rounded mb-2 w-full">
-                        <input type="submit" value="Upload" class="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer">
-                    </form>
-                </div>
-            </div>
+        <p id="projectDesc" contenteditable="false" class="text-white">Project description text goes here...</p>
+      </section>
+      <!-- Project Difficulty -->
+      <section>
+        <div class="flex items-center mb-2">
+          <h2 class="text-xl font-semibold text-white mr-2">{{project.difficulty}}</h2>
+          <button class="lockButton" data-section="projectDiff"><i class="fas fa-lock text-yellow-200"></i></button>
         </div>
+        <select id="projectDiff" class="border p-2 rounded" disabled>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+          <option value="Expert">Expert</option>
+        </select>
+      </section>
+
+      <!-- Budget Estimation -->
+      <section>
+        <div class="flex items-center mb-2">
+          <h2 class="text-xl font-semibold text-white mr-2">{{project.budget_estimation}}</h2>
+          <button class="lockButton" data-section="budgetEst"><i class="fas fa-lock text-yellow-200"></i></button>
+        </div>
+        <div id="budgetEst">
+          <input type="number" id="budgetLimit" value="1000" class="border p-2 rounded mb-2" disabled>
+          <div class="bg-gray-200 w-full rounded-full h-2.5 dark:bg-gray-700 mb-2">
+            <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+          </div>
+          <div class="flex mb-2">
+            <input type="number" id="spentAmount" placeholder="Amount Spent" class="border p-2 rounded mr-2" readonly>
+            <button id="addExpense" class="bg-green-500 text-white py-2 px-4 rounded">+</button>
+          </div>
+          <ul id="expenseList" class="list-disc ml-5 text-white"></ul>
+        </div>
+      </section>
+
+      <!-- Materials Checklist -->
+      <section>
+        <div class="flex items-center mb-2">
+          <h2 class="text-xl font-semibold text-white mr-2">{{project.material_checklist}}</h2>
+          <button class="lockButton" data-section="materialsChecklist"><i
+              class="fas fa-lock text-yellow-200"></i></button>
+        </div>
+        <div id="materialsChecklist" contenteditable="false">
+          <div class="flex mb-2">
+            <input type="text" id="materialItem" placeholder="Add item" class="border p-2 rounded mr-2" readonly>
+            <button id="addMaterial" class="bg-green-500 text-white py-2 px-4 rounded">+</button>
+          </div>
+          <ul id="materialList" class="list-disc ml-5 text-white"></ul>
+        </div>
+      </section>
     </div>
-   <script src="../js/project.js"></script>
+  </div>
+
+  <!-- Right Section -->
+  <div class="ml-6">
+    <p>
+      <a href="/tasks/{{project.id}}" class="btn btn-primary bg-blue-500 text-white py-2 px-4 rounded mb-4">See Tasks</a>
+    </p>
+
+    <!-- Img Upload Section -->
+    <div
+      class="w-64 h-64 border border-dashed border-gray-400 flex flex-col justify-center items-center relative group hover:bg-gray-100"
+      id="imageUploadContainer">
+      <span class="text-white">
+        <img id="uploadedImage" src="placeholder.jpg" class="hidden" alt="Uploaded Image" />
+      </span>
+
+      <div id="uploadControls" class="text-yellow-200">
+        Upload Image
+        <button name="addImage"
+          class="mt-2 hidden group-hover:flex items-center justify-center bg-gray-200 text-gray-700 py-1 px-3 rounded text-sm"
+          id="imageBtn">
+          <i class="fas fa-plus mr-1"></i> Add
+        </button>
+        <form id="imageUploadForm" class="hidden mt-4 p-4 bg-white shadow-lg rounded" method="POST" action="/api/upload"
+          enctype="multipart/form-data">
+          <input type="file" name="image" class="mb-2" id="imageFileInput">
+          <input type="text" name="imgname" id="imgname" placeholder="Image Name"
+            class="border p-2 rounded mb-2 w-full">
+          <input type="submit" value="Upload" class="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../js/project.js"></script>
