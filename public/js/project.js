@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    let tasksButton = document.getElementById('tasksButton');
+    if (tasksButton) {
+        tasksButton.addEventListener('click', function() {
+            window.location.href = '/'; // URL of your Handlebars page
+        });
+    }
+
     let addExpenseBtn = document.getElementById('addExpense');
     if (addExpenseBtn) {
         addExpenseBtn.addEventListener('click', addExpense);
@@ -96,23 +103,17 @@ function toggleLock(sectionId, button) {
     if (!section) {
         console.error(`Element with ID '${sectionId}' not found.`);
         return;
-    }
-    if (sectionId === 'projectDiff') {
+    } else if (sectionId === 'projectDiff') {
         const isDisabled = section.disabled;
         section.disabled = !isDisabled;
         button.innerHTML = isDisabled ? '<i class="fas fa-unlock"></i>' : '<i class="fas fa-lock"></i>';
-    } else {
-        // Existing code for other sections
-        const isLocked = section.getAttribute('contenteditable') === 'true';
-        section.setAttribute('contenteditable', !isLocked);
-        button.innerHTML = isLocked ? '<i class="fas fa-lock"></i>' : '<i class="fas fa-unlock"></i>';
     }
 
     const isLocked = section.getAttribute('contenteditable') === 'true';
     section.setAttribute('contenteditable', !isLocked);
 
     // Update lock button icon
-    button.innerHTML = isLocked ? '<i class="fas fa-lock"></i>' : '<i class="fas fa-unlock"></i>';
+    button.innerHTML = isLocked ? '<i class="fas fa-lock text-yellow-200"></i>' : '<i class="fas fa-unlock text-yellow-200"></i>';
 
     if (sectionId === 'budgetEst') {
         isBudgetEstimationLocked = isLocked;
@@ -126,4 +127,38 @@ function toggleLock(sectionId, button) {
         document.getElementById('addMaterial').disabled = isLocked;
     }
 }
+
+document.getElementById('imageUploadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const submitButton = this.querySelector('[type="submit"]');
+    submitButton.value = 'Uploading...';
+    submitButton.disabled = true;
+
+    fetch('/api/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.imagePath) {
+            const uploadedImage = document.getElementById('uploadedImage');
+            uploadedImage.src = data.imagePath;
+            uploadedImage.classList.remove('hidden');
+
+            // Hide only the upload controls
+            uploadControls.classList.add('hidden');
+        } else {
+            console.error('Upload failed');
+            submitButton.value = 'Upload';
+            submitButton.disabled = false;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        submitButton.value = 'Upload';
+        submitButton.disabled = false;
+    });
+});
 
