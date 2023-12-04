@@ -57,6 +57,9 @@ You must also install the Express.js npm package to run the server. Since Expres
 
 To use the deployed site, please head over to: 
 
+The page should open as per below screenshots:
+![Screenshot of Login and Signup Page](public/images/homepage-screenshot.png)
+
 1. Once on the site, click on Sign Up to create a new account. Otherwise, click on Login if you already have an account. 
 
 2. After signing up for an account and logging into your account, you will be navigated to the homepage.
