@@ -1,0 +1,8 @@
+[
+    {
+      "new": "new task example",
+      "urgent": "urgent task example",
+      "in-progress": "in progress task example",
+      "completed": "completed task example"
+    }
+  ]
