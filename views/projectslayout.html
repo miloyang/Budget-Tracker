@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECTS - DIY BUDDY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6 h-screen flex flex-col">
+    <!-- Header Section -->
+    <header class="flex justify-between items-center mb-8 p-2 bg-white shadow-md">
+        <img src="path-to-your-logo.png" alt="Logo" class="h-8"> <!-- Replace with your logo path -->
+        <a href="home-page-link" class="text-blue-500 hover:text-blue-700 text-lg">Home</a> <!-- Replace with your home page link -->
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex-grow flex">
+        <!-- Left Section -->
+        <div class="flex-grow">
+            <h1 class="text-3xl font-bold text-gray-700 mb-6">Project Title</h1>
+
+            <!-- Sections -->
+            <div class="space-y-6">
+                <!-- Project Description -->
+                <section>
+                    <div class="flex items-center mb-2">
+                        <h2 class="text-xl font-semibold text-gray-600 mr-2">Project Description</h2>
+                        <button class="lockButton" data-section="projectDesc"><i class="fas fa-lock"></i></button>
+                    </div>
+                    <p id="projectDesc" contenteditable="false">Project description text goes here...</p>
+                </section>
+                <!-- Project Difficulty -->
+                <section>
+                    <div class="flex items-center mb-2">
+                        <h2 class="text-xl font-semibold text-gray-600 mr-2">Project Difficulty</h2>
+                        <button class="lockButton" data-section="projectDiff"><i class="fas fa-lock"></i></button>
+                    </div>
+                    <select id="projectDiff" class="border p-2 rounded" disabled>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </section>
+
+                <!-- Budget Estimation -->
+                <section>
+                    <div class="flex items-center mb-2">
+                        <h2 class="text-xl font-semibold text-gray-600 mr-2">Budget Estimation</h2>
+                        <button class="lockButton" data-section="budgetEst"><i class="fas fa-lock"></i></button>
+                    </div>
+                    <div id="budgetEst">
+                        <input type="number" id="budgetLimit" value="1000" class="border p-2 rounded mb-2" disabled>
+                        <div class="bg-gray-200 w-full rounded-full h-2.5 dark:bg-gray-700 mb-2">
+                            <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="flex mb-2">
+                            <input type="number" id="spentAmount" placeholder="Amount Spent" class="border p-2 rounded mr-2" readonly>
+                            <button id="addExpense" class="bg-green-500 text-white py-2 px-4 rounded">+</button>
+                        </div>
+                        <ul id="expenseList" class="list-disc ml-5"></ul>
+                    </div>
+                </section>
+
+                <!-- Materials Checklist -->
+                <section>
+                    <div class="flex items-center mb-2">
+                        <h2 class="text-xl font-semibold text-gray-600 mr-2">Materials Checklist</h2>
+                        <button class="lockButton" data-section="materialsChecklist"><i class="fas fa-lock"></i></button>
+                    </div>
+                    <div id="materialsChecklist" contenteditable="false">
+                        <div class="flex mb-2">
+                            <input type="text" id="materialItem" placeholder="Add item" class="border p-2 rounded mr-2" readonly>
+                            <button id="addMaterial" class="bg-green-500 text-white py-2 px-4 rounded">+</button>
+                        </div>
+                        <ul id="materialList" class="list-disc ml-5"></ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="ml-6">
+            <button name="tasks" class="bg-blue-500 text-white py-2 px-4 rounded mb-4">Tasks</button>
+            
+            <!-- Image Upload Section -->
+            <div class="w-64 h-64 border border-dashed border-gray-400 flex flex-col justify-center items-center relative group hover:bg-gray-100">
+                <span class="text-gray-500">Upload Image</span>
+                <button name="addImage" class="mt-2 hidden group-hover:flex items-center justify-center bg-gray-200 text-gray-700 py-1 px-3 rounded text-sm" id="imageBtn">
+                    <i class="fas fa-plus mr-1"></i> Add
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="../public/js/project.js"></script>
+</body>
+</html>
+
+
+
+
