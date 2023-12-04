@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 let totalExpenses = 0;
-const budgetLimit = 1000; // Preset budget limit
+let budget= document.getElementById("budgetLimit").value
+const budgetLimit = budget; // Preset budget limit
 let isBudgetEstimationLocked = true; // Initially locked
 let isMaterialsChecklistLocked = true; // Initially locked
 
