@@ -64,11 +64,21 @@
     </div>
   </div>
 
-  <!-- Right Section -->
-  <div class="ml-6">
-    <p>
-      <a href="/tasks/{{project.id}}" class="btn btn-primary bg-blue-500 text-white py-2 px-4 rounded mb-4">See Tasks</a>
-    </p>
+
+
+
+        <!-- Right Section -->
+        <div class="ml-6">
+            <p>
+              <a href="/tasks/{{project.id}}" class="btn btn-primary bg-blue-500 text-white py-2 px-4 rounded mb-4">Tasks</a>
+            </p>
+            
+            <!-- Img Upload Section -->
+            <div class="w-64 h-64 border border-dashed border-gray-400 flex flex-col justify-center items-center relative group hover:bg-gray-100" id="imageUploadContainer">
+                <span class="text-white">
+                    <img id="uploadedImage" src="placeholder.jpg" class="hidden" alt="Uploaded Image" />
+                </span>
+
 
     <!-- Img Upload Section -->
     <div

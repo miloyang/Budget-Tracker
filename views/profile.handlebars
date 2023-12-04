@@ -1,39 +1,41 @@
 <div class="row text-blue-100 font-bold relative">
-  <div class="col-auto">
-    <h2>Welcome, {{user.username}}!</h2>
+  <div class="col-auto text-lg">
+    <h1>Welcome, {{user.username}}!</h1>
   </div>
 </div>
 
 <div class="row mt-4 text-blue-100 font-bold relative">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h2 class="text-xlg">Create a New Project:</h2>
 
     <form class="form new-project-form">
       <div class="form-group">
-        <label for="project-name">Project Name:</label>
+        <label for="project-name" class="text-yellow-100 font-bold">Project Name:</label>
         <input class="form-input" type="text" id="project-name" name="project-name" />
       </div>
       <div class="form-group">
-        <label for="project-desc">Description:</label>
+        <label for="project-desc" class="text-yellow-100 font-bold">Description:</label>
         <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
       </div>
       <div class="form-group">
-        <label for="project-difficulty">Difficulty</label><br>
+        <label for="project-difficulty"class="text-yellow-100 font-bold">Difficulty</label><br>
         <input type="radio" id="difficulty" name="diff" value="Easy">
-        <label for="diff1">Easy</label><br>
+        <label for="diff1" class="text-green-400">Easy</label><br>
         <input type="radio" id="difficulty" name="diff" value="Medium">
-        <label for="diff2">Medium</label><br>
+        <label for="diff2" class="text-yellow-600">Medium</label><br>
         <input type="radio" id="difficulty" name="diff" value="Hard">
+
         <label for="diff3">Hard</label><br>
         <input type="radio" id="difficulty" name="diff" value="Expert">
         <label for="diff3">Expert</label><br>
+
       </div>
       <div class="form-group">
-        <label for="materials">Materials Required:</label>
+        <label for="materials" class="text-yellow-100 font-bold">Materials Required:</label>
         <textarea class="form-input" id="materials" name="materials"></textarea>
       </div>
       <div class="form-group">
-        <label for="budget">Budget💰:</label>
+        <label for="budget" class="text-yellow-100 font-bold">Budget💰:</label>
         <input class="form-input" type="number" id="budget" name="budget" />
       </div>
       <div class="form-group">
