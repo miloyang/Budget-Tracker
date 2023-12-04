@@ -91,6 +91,11 @@
                 <button name="addImage" class="mt-2 hidden group-hover:flex items-center justify-center bg-gray-200 text-gray-700 py-1 px-3 rounded text-sm" id="imageBtn">
                     <i class="fas fa-plus mr-1"></i> Add
                 </button>
+                <form id="imageUploadForm" class="hidden mt-4 p-4 bg-white shadow-lg rounded" method="POST" action="/upload" enctype="multipart/form-data">
+                    <input type="file" name="image" class="mb-2">
+                    <input type="text" name="imgname" id="imgname" placeholder="Image Name" class="border p-2 rounded mb-2 w-full">
+                    <input type="submit" value="Upload" class="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer">
+                </form>
             </div>
         </div>
     </div>
