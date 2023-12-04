@@ -1,20 +1,8 @@
 [
     {
-      "new": "Sanding the door, buying paint brushes",
-      "urgent": "picking up paint from bunning",
-      "in-progress": "",
-      "completed": "buying paint rollers"
-    },
-    {
-        "new": "Sanding the door, buying paint brushes",
-        "urgent": "picking up paint from bunning",
-        "in-progress": "",
-        "completed": "buying paint rollers"
-      },
-      {
-        "new": "Sanding the door, buying paint brushes",
-        "urgent": "picking up paint from bunning",
-        "in-progress": "",
-        "completed": "buying paint rollers"
-      }
+      "new": "new task example",
+      "urgent": "urgent task example",
+      "in-progress": "in progress task example",
+      "completed": "completed task example"
+    }
   ]
