@@ -71,7 +71,7 @@ function addMaterial() {
 
     const materialValue = document.getElementById('materialItem').value.trim();
     if (materialValue === '') {
-        return; // Don't add empty items
+        return; // can't add empty items
     }
 
     const materialList = document.getElementById('materialList');
