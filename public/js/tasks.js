@@ -83,3 +83,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+saveTasks.addEventListener('click', function() {
+    // Call a function to save the tasks
+    saveTasksToLocalStorage();
+});
+function saveTasksToLocalStorage() {
+    // Retrieve all task cards on the page
+    const allTaskCards = document.querySelectorAll('#taskInput');
+    // Create an array to store task data
+    const taskDataArray = [];
+    // Iterate through each task card and extract relevant information
+    allTaskCards.forEach(taskCard => {
+        const taskId = taskCard.id;
+        const taskContent = taskCard.querySelector('p').textContent;
+        // Store task data in an object
+        const taskData = {
+            id: taskId,
+            content: taskContent
+        };
+        // Add the task data object to the array
+        taskDataArray.push(taskData);
+    });
+    // Save the task data array to local storage
+    localStorage.setItem('tasks', JSON.stringify(taskDataArray));
+    alert('Tasks saved successfully!');
+}
+// Function to load tasks from local storage
+function loadTasksFromLocalStorage() {
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+        const taskDataArray = JSON.parse(savedTasks);
+        // Iterate through the saved task data and recreate the task cards
+        taskDataArray.forEach(taskData => {
+            const secondColumn = document.querySelectorAll('.column')[1]; // Choose the appropriate column
+            const thirdColumn = document.querySelectorAll('.column')[2];
+            const fourthColumn = document.querySelectorAll('.column')[3];
+            createTaskCard(taskData.content, firstColumn, secondColumn, thirdColumn, fourthColumn);
+        });
+    }
+}
+// Load tasks from local storage when the page loads
+loadTasksFromLocalStorage();

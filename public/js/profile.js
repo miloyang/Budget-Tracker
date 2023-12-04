@@ -29,6 +29,14 @@ const newFormHandler = async (event) => {
   }
 };
 
+let imageBtn = document.getElementById('imageBtn');
+if (imageBtn) {
+    imageBtn.addEventListener('click', function() {
+        let form = document.getElementById('imageUploadForm');
+        form.classList.toggle('hidden');
+    });
+};
+
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
