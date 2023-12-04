@@ -51,15 +51,3 @@ const loginFormHandler = async (event) => {
   document
     .querySelector('#signup-form')
     .addEventListener('submit', signupFormHandler);
-  
-
-// // Use window.onload to ensure the DOM is fully loaded before attaching event listeners
-// window.onload = function () {
-//     document
-//       .querySelector('#login-form')
-//       .addEventListener('submit', loginFormHandler);
-  
-//     document
-//       .querySelector('#signup-form')
-//       .addEventListener('submit', signupFormHandler);
-//   };

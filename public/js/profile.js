@@ -37,6 +37,39 @@ if (imageBtn) {
     });
 };
 
+const fileInput = document.getElementById('file-input');
+const imageName = document.getElementById('imgname');
+
+document.addEventListener('DOMContentLoaded', () => {
+  const fileInput = document.getElementById('file-input');
+  const imageName = document.getElementById('imgname');
+  const uploadButton = document.getElementById('imageBtn');
+
+  uploadButton.addEventListener('click', () => {
+    const file = fileInput.files[0];
+
+    if (file) {
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('imgname', imageName); 
+
+      fetch('/upload', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.text())
+        .then(data => {
+          console.log(data); 
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    } else {
+      console.error('No file selected.');
+    }
+  });
+});
+
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");

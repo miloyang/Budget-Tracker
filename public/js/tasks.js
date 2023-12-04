@@ -84,44 +84,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-saveTasks.addEventListener('click', function() {
-    // Call a function to save the tasks
-    saveTasksToLocalStorage();
-});
-function saveTasksToLocalStorage() {
-    // Retrieve all task cards on the page
-    const allTaskCards = document.querySelectorAll('#taskInput');
-    // Create an array to store task data
-    const taskDataArray = [];
-    // Iterate through each task card and extract relevant information
-    allTaskCards.forEach(taskCard => {
-        const taskId = taskCard.id;
-        const taskContent = taskCard.querySelector('p').textContent;
-        // Store task data in an object
-        const taskData = {
-            id: taskId,
-            content: taskContent
-        };
-        // Add the task data object to the array
-        taskDataArray.push(taskData);
-    });
-    // Save the task data array to local storage
-    localStorage.setItem('tasks', JSON.stringify(taskDataArray));
-    alert('Tasks saved successfully!');
-}
-// Function to load tasks from local storage
-function loadTasksFromLocalStorage() {
-    const savedTasks = localStorage.getItem('tasks');
-    if (savedTasks) {
-        const taskDataArray = JSON.parse(savedTasks);
-        // Iterate through the saved task data and recreate the task cards
-        taskDataArray.forEach(taskData => {
-            const secondColumn = document.querySelectorAll('.column')[1]; // Choose the appropriate column
-            const thirdColumn = document.querySelectorAll('.column')[2];
-            const fourthColumn = document.querySelectorAll('.column')[3];
-            createTaskCard(taskData.content, firstColumn, secondColumn, thirdColumn, fourthColumn);
-        });
+document.addEventListener('DOMContentLoaded', async () => {
+    const tasksContainer = document.getElementById('tasksContainer');
+    
+    // Fetch the saved tasks when the page is loaded
+    try {
+      const response = await fetch('/api/tasks');
+    
+      if (response.ok) {
+        const tasks = await response.json();
+        console.log('Tasks retrieved successfully:', tasks);
+    
+        // Update UI with the retrieved tasks
+        renderTasks(tasks, tasksContainer);
+      } else {
+        console.error('Failed to retrieve tasks:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error retrieving tasks:', error.message);
     }
-}
-// Load tasks from local storage when the page loads
-loadTasksFromLocalStorage();
+
+    const saveTasksButton = document.getElementById('save-tasks');
+  
+    saveTasksButton.addEventListener('click', async () => {
+      try {
+        // Create an array of tasks
+        const tasks = [
+            { name: 'Task 1', column: 'new'},
+            { name: 'Task 2', column: 'urgent'},
+            { name: 'Task 3', column: 'in-progress'},
+            { name: 'Task 4', column: 'completed'},
+        ]
+        // Make a fetch request to your server's API endpoint for creating tasks
+        const response = await fetch('/api/tasks', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // Sending an array of tasks to the server
+          body: JSON.stringify({ tasks }),
+        });
+  
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Tasks saved successfully:', result);
+      
+            // Fetch the updated tasks after saving
+            const updatedResponse = await fetch('/api/tasks');
+      
+            if (updatedResponse.ok) {
+              const updatedTasks = await updatedResponse.json();
+              console.log('Updated tasks retrieved successfully:', updatedTasks);
+      
+              // Update UI with the retrieved tasks
+              renderTasks(updatedTasks, tasksContainer);
+            } else {
+              console.error('Failed to retrieve updated tasks:', updatedResponse.statusText);
+            }
+          } else {
+            console.error('Failed to save tasks:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error saving tasks:', error.message);
+        }
+      });
+    });
+    
+    // Function to render tasks on the page
+    function renderTasks(tasks, container) {
+      // Clear the existing content in the container
+      container.innerHTML = '';
+    
+      // Iterate through the tasks and append them to the container
+      tasks.forEach(task => {
+        const taskElement = document.createElement('div');
+        taskElement.textContent = task.id; 
+        container.appendChild(taskElement);
+      });
+    }
