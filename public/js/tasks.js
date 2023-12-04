@@ -83,33 +83,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-document.getElementById('save-tasks').addEventListener('click', function() {
-    const tasks = [];
-    document.querySelectorAll('.column').forEach((column, columnIndex) => {
-        const status = column.getAttribute('data-status'); // Assuming each column has a 'data-status' attribute
-        column.querySelectorAll('.task-card').forEach((card, cardIndex) => {
-            const content = card.querySelector('p').textContent;
-            tasks.push({ content, status, order: cardIndex, columnOrder: columnIndex });
-        });
-    });
-
-    saveTasks(tasks);
-});
-
-function saveTasks(tasks) {
-    fetch('/api/save-tasks', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ tasks }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Tasks saved successfully');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Failed to save tasks');
-    });
-}
