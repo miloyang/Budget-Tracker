@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (progressBar) {
         updateProgress();
     }
+
+    let imageBtn = document.getElementById('imageBtn');
+    if (imageBtn) {
+        imageBtn.addEventListener('click', function() {
+            let form = document.getElementById('imageUploadForm');
+            form.classList.toggle('hidden');
+        });
+    }
 });
 
 let totalExpenses = 0;
@@ -118,3 +126,4 @@ function toggleLock(sectionId, button) {
         document.getElementById('addMaterial').disabled = isLocked;
     }
 }
+
