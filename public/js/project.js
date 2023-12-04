@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // let tasksButton = document.getElementById('tasksButton');
-    // if (tasksButton) {
-    //     tasksButton.addEventListener('click', function() {
-    //         window.location.href = '/tasks'; // URL of your Handlebars page
-    //     });
-    // }
 
     let addExpenseBtn = document.getElementById('addExpense');
     if (addExpenseBtn) {
