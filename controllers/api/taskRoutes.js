@@ -20,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
 // Create a get route to show all tasks
 router.get('/', async (req, res) => {
     try {
-        // Get all tasks and JOIN with user data
+        // Get all tasks and JOIN with project data
         const taskData = await Task.findAll({
             include: [
                 {
@@ -30,9 +30,11 @@ router.get('/', async (req, res) => {
             ],
         });
 
+        // Serialize data so the template can read it
         const tasks = taskData.map((task) => task.get({ plain: true }));
 
-        res.render('homepage', {
+        // Pass serialized data and session flag into template
+        res.render('tasks', {
             tasks,
             logged_in: req.session.logged_in
         });
@@ -60,7 +62,7 @@ router.get('/:id', async (req, res) => {
 
         const task = taskData.get({ plain: true });
 
-        res.render('tasks', {
+        res.render('task', {
             task,
             logged_in: req.session.logged_in
         });

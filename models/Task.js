@@ -11,11 +11,25 @@ Task.init(
           primaryKey: true,
           autoIncrement: true,
         },
-        name: {
-          type: DataTypes.STRING,
+        status: {
+          type: DataTypes.ENUM('new', 'urgent', 'in progress', 'completed'),
           allowNull: false,
         },
+        user_id: {
+          type: DataTypes.INTEGER,
+          references: {
+        model: 'user',
+        key: 'id',
+        },
+        project_id: {
+          type: DataTypes.INTEGER,
+          references: {
+        model: 'project',
+        key: 'id',
+        },
+      },
     },
+  },
 {
     sequelize,
     timestamps: false,
