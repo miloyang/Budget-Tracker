@@ -94,12 +94,6 @@ Insomnia was used to seed and test the routes for this app. There is no command 
 
 4. Go to Insomnia and test for the route you want to test. Make sure to change the route from GET to POST Or DELETE depending on what you want to test for. 
 
-5. The routes will be as follows (change users to posts or comments if you would like to test those routes and change :id to the id of the user, post, or comment you want to look for):
-- GET (all users): http://localhost:3001/api/users 
-- GET (one user): http://localhost:3001/api/users/:id
-- POST: http://localhost:3001/api/users
-- DELETE: http://localhost:3001/api/users/1
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact Us
