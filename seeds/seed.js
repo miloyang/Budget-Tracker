@@ -15,7 +15,7 @@ const seedDatabase = async () => {
 
     const projects = await Project.bulkCreate(projectData);
 
-    const tasks = await Task.bulkCreate(taskData);
+    const tasks = await Tasks.bulkCreate(taskData);
 
     process.exit(0);
 };
