@@ -55,7 +55,7 @@ You must also install the Express.js npm package to run the server. Since Expres
 
 ## Usage Instructions
 
-To use the deployed site, please head over to: 
+To use the deployed site, please head over to: https://diy-buddy-app-final-3c3eca16d427.herokuapp.com/
 
 The page should open as per below screenshots:
 ![Screenshot of Login and Signup Page](public/images/homepage-screenshot.png)
